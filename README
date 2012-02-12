@@ -1,0 +1,28 @@
+------------------------------------------------------------------------------------------------------------------------
+This software was written for use with the Dodecaudion controller - https://github.com/panGenerator/dodecaudion
+It's a bridge between Dodecaudion and any OSC client. It translates serial data incomming from Dodecaudion into
+OSC messages.
+
+Provided without any warranties on Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0) license
+http://creativecommons.org/licenses/by-nc-sa/3.0/
+------------------------------------------------------------------------------------------------------------------------
+
+
+
+Libraries needed to run this project
+- OpenFrameworks 007 http://www.openframeworks.cc/download/
+- ofxUI ofxaddons.com/repos/500
+
+Running the project - short version
+1) Go into Your OpenFrameworks directory (the one which has addons, apps, libs folders).
+2) Make a directory - works best if it's named `pangenerator`
+3) Download the project from git and extract it to a sub-directory or clone it via git clone git@github.com:panGenerator/dodecaudionOFBridge.git  
+4) Open the project in xCode and hit 'run'
+
+Running the project - longer version
+1) Perform the steps from the short version but place the project in the directory of your choosing
+2) Open Project preferences -> build settings, scroll all the way down and set the OF_PATH so it points to OpenFrameworks directory (the one which has addons, apps, libs folders)
+3) Manually drag the ofxOSC (`addons/ofxOsc/src` directory and `addons/ofxOsc/libs/oscpack/lib/osx/osc.a`)
+4) Manually drag the ofxUI (`addons/ofxUI/src` directory)
+6) In the project file browser in xCode remove all the files which point to broken locations (highlighted in red)
+6) Hit run and pray that the paths are fine. If not try to read the compilers/linker's errors. It'll most probably be something wrong with the paths - You can always roll on with the "short version"

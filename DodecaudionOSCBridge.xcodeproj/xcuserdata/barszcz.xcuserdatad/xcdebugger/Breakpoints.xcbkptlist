@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "1.0">
+   <FileBreakpoints>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350767416.745196"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "253"
+         endingLineNumber = "253"
+         landmarkName = "DodecaudionOSCBridgeApp::initSerialPort(string serialPortToInitialize,int serialPortBaudRateToInitialize)"
+         landmarkType = "5">
+         <Locations>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "DodecaudionOSCBridgeApp::initSerialPort(std::string, int)"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350664963.802722"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "187"
+               endingLineNumber = "187">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "Poco::FastMutex::unlock()"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350664963.804029"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "187"
+               endingLineNumber = "187">
+            </Location>
+         </Locations>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350767416.745196"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "204"
+         endingLineNumber = "204"
+         landmarkName = "DodecaudionOSCBridgeApp::guiEvent(ofxUIEventArgs &amp;e)"
+         landmarkType = "5">
+         <Locations>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "ofxUIDropDownList::setParent(ofxUIWidget*)"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350664963.810197"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "175"
+               endingLineNumber = "175">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "Poco::FIFOStrategy&lt;ofxUIEventArgs, Poco::AbstractDelegate&lt;ofxUIEventArgs&gt;, Poco::p_less&lt;Poco::AbstractDelegate&lt;ofxUIEventArgs&gt; &gt; &gt;::~FIFOStrategy()"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350664963.810701"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "175"
+               endingLineNumber = "175">
+            </Location>
+         </Locations>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350767416.745196"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "205"
+         endingLineNumber = "205"
+         landmarkName = "DodecaudionOSCBridgeApp::guiEvent(ofxUIEventArgs &amp;e)"
+         landmarkType = "5">
+         <Locations>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "DodecaudionOSCBridgeApp::guiEvent(ofxUIEventArgs&amp;)"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350664963.817262"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "176"
+               endingLineNumber = "176">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "ofxUIDropDownList::setParent(ofxUIWidget*)"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350664963.817644"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "176"
+               endingLineNumber = "176">
+            </Location>
+         </Locations>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350767416.745196"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "263"
+         endingLineNumber = "263"
+         landmarkName = "DodecaudionOSCBridgeApp::initSerialPort(string serialPortToInitialize,int serialPortBaudRateToInitialize)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350767416.745196"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "257"
+         endingLineNumber = "257"
+         landmarkName = "DodecaudionOSCBridgeApp::initSerialPort(string serialPortToInitialize,int serialPortBaudRateToInitialize)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350767416.745196"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "258"
+         endingLineNumber = "258"
+         landmarkName = "DodecaudionOSCBridgeApp::initSerialPort(string serialPortToInitialize,int serialPortBaudRateToInitialize)"
+         landmarkType = "5">
+         <Locations>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "DodecaudionOSCBridgeApp::initSerialPort(std::string, int)"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350666973.800354"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "192"
+               endingLineNumber = "192">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "ofxUILabel::unfocus()"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350666973.80077"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "192"
+               endingLineNumber = "192">
+            </Location>
+            <Location
+               shouldBeEnabled = "No"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "ofxUICanvas::addWidget(ofxUIWidget*)"
+               urlString = "file://localhost/DodecaudionOSCBridgeApp.cpp"
+               timestampString = "350666973.801016"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "192"
+               endingLineNumber = "192">
+            </Location>
+         </Locations>
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350757631.319109"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
+         landmarkName = "DodecaudionOSCBridgeApp::update()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350757631.319109"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "DodecaudionOSCBridgeApp::update()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "src/DodecaudionOSCBridgeApp.cpp"
+         timestampString = "350767416.745196"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "379"
+         endingLineNumber = "379"
+         landmarkName = "DodecaudionOSCBridgeApp::updateDodecaudionCalibration()"
+         landmarkType = "5">
+      </FileBreakpoint>
+   </FileBreakpoints>
+</Bucket>
