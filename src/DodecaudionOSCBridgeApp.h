@@ -8,7 +8,7 @@
 #include <iostream>
 #include <algorithm>
 
-#define UI_FORM_ITEM_WIDTH_DEFAULT 200
+#define UI_FORM_ITEM_WIDTH_DEFAULT 250
 #define UI_OSC_HOST_TEXTINPUT_NAME "OSC Host"
 #define UI_OSC_PORT_TEXTINPUT_NAME "OSC Port"
 #define UI_DODECAUDION_CALIBRATE_TOGGLE_NAME "Calibrate walls"

@@ -10,7 +10,7 @@ void DodecaudionOSCBridgeApp::setup(){
     drawPlots = false;
     
     calibrationStartFrame = 0;
-    calibrationFrameLimit = 360;
+    calibrationFrameLimit = 1200;
     
     for( int i = 0 ; i < DODECAUDION_VALUES_COUNT ; i++ ){
         dodecaudionValues.push_back( 0.0f );
@@ -49,6 +49,7 @@ void DodecaudionOSCBridgeApp::update(){
     
     
     if( isCalibrating ){
+        updateDodecaudion();
         updateDodecaudionCalibration();
     }else{
         updateDodecaudion();
@@ -280,6 +281,7 @@ void DodecaudionOSCBridgeApp::parseSerialDataInto(string serialBuffer, vector<fl
                 float val = values[i];
                 float valNew = dodecaudionValueCalc( i , atof(parts[i].c_str()) );
                 values[i] = valNew;
+                dodecaudionValues[i] = valNew;
             }
         }
     }
@@ -328,12 +330,12 @@ void DodecaudionOSCBridgeApp::oscSendValues()
     msg1.addFloatArg(dodecaudionValues[11]);
 
     msg2.setAddress(OSC_ADDRESS_INSTRUMENT1);
-    msg1.addFloatArg(dodecaudionValues[0]);
-    msg1.addFloatArg(dodecaudionValues[2]);
-    msg1.addFloatArg(dodecaudionValues[4]);
-    msg1.addFloatArg(dodecaudionValues[6]);
-    msg1.addFloatArg(dodecaudionValues[8]);
-    msg1.addFloatArg(dodecaudionValues[10]);
+    msg2.addFloatArg(dodecaudionValues[0]);
+    msg2.addFloatArg(dodecaudionValues[2]);
+    msg2.addFloatArg(dodecaudionValues[4]);
+    msg2.addFloatArg(dodecaudionValues[6]);
+    msg2.addFloatArg(dodecaudionValues[8]);
+    msg2.addFloatArg(dodecaudionValues[10]);
 
     oscSender.sendMessage(msg1);
     oscSender.sendMessage(msg2);
@@ -365,16 +367,22 @@ void DodecaudionOSCBridgeApp::updateDodecaudion()
  */
 void DodecaudionOSCBridgeApp::updateDodecaudionCalibration()
 {
-    std::cout << "calibrating " << ( ofGetFrameNum() - calibrationStartFrame ) << " / " << calibrationFrameLimit << std::endl;
+    //std::cout << "calibrating " << ( ofGetFrameNum() - calibrationStartFrame ) << " / " << calibrationFrameLimit << std::endl;
     
     if( calibrationFrameLimit >= ( ofGetFrameNum() - calibrationStartFrame ) ){
         for( int wallId = 0 ; wallId < dodecaudionValues.size() ; wallId++ ){
-            dodecaudionValuesCalibrationOffset[wallId] = ( dodecaudionValuesCalibrationOffset[wallId] + dodecaudionValues[wallId] ) / 2.0;
+            dodecaudionValuesCalibrationOffset[wallId] = 0.5f * (float)( dodecaudionValuesCalibrationOffset[wallId] + dodecaudionValues[wallId] );
+            std::cout << dodecaudionValuesCalibrationOffset[wallId] << " " << dodecaudionValuesCalibrationOffset[wallId] << " " << dodecaudionValues[wallId] << std::endl;
         }
     }else{
-        std::cout << dodecaudionValuesCalibrationOffset[0] << std::endl;
         isCalibrating = false;
         dodecaudionCalibrateToggle->setValue(isCalibrating);
+    
+        std::cout << "Calibration finished" << std::endl;
+        for( int wallId = 0 ; wallId < dodecaudionValues.size() ; wallId++ ){
+            //dodecaudionValuesCalibrationOffset[wallId] = ( dodecaudionValuesCalibrationOffset[wallId] + dodecaudionValues[wallId] ) / 2.0;
+            std::cout << "WallOffset for #" << wallId << " = " << dodecaudionValuesCalibrationOffset[wallId] << std::endl; 
+        }
     }
 }
 
