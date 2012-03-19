@@ -8,7 +8,9 @@
 #include <iostream>
 #include <algorithm>
 
-#define UI_FORM_ITEM_WIDTH_DEFAULT 250
+#define UI_FORM_ITEM_WIDTH_DEFAULT 320
+#define UI_FORM_ITEM_WIDTH_DEFAULT_VERTICAL 10
+#define UI_FORM_ITEM_HEIGHT_DEFAULT 320
 #define UI_OSC_HOST_TEXTINPUT_NAME "OSC Host"
 #define UI_OSC_PORT_TEXTINPUT_NAME "OSC Port"
 #define UI_DODECAUDION_CALIBRATE_TOGGLE_NAME "Calibrate walls"
@@ -66,7 +68,7 @@ class DodecaudionOSCBridgeApp : public ofBaseApp{
         bool drawPlots;
     
         ofxUICanvas *gui;		
-        vector<ofxUISlider *> dodecaudionValueIndicators;
+        vector<ofxUIRangeSlider *> dodecaudionValueIndicators;
         ofxUIToggle *dodecaudionCalibrateToggle;
     
         string serialPortCurrent;
@@ -80,7 +82,7 @@ class DodecaudionOSCBridgeApp : public ofBaseApp{
         string oscHostCurrent;
     
         vector<float> dodecaudionValues,dodecaudionValuesPrev,dodecaudionValuesCalibrationOffset;
-        bool isCalibrating;
+        bool isCalibrating,isFirstCalibratingFrame;
         int calibrationFrameLimit,calibrationStartFrame;
         
     

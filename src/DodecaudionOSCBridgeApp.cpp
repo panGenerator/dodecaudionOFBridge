@@ -153,7 +153,7 @@ void DodecaudionOSCBridgeApp::initGUI()
     }
     
     
-    gui = new ofxUICanvas(0,0,320,640);		
+    gui = new ofxUICanvas(0,0,380,640);		
     
     //Serial port related
     gui->addWidgetDown(new ofxUILabel("Serial port", OFX_UI_FONT_LARGE)); 
@@ -173,6 +173,16 @@ void DodecaudionOSCBridgeApp::initGUI()
     gui->addWidgetDown(new ofxUILabel("Dodecaudion Values", OFX_UI_FONT_LARGE));
     gui->addWidgetDown(new ofxUISpacer(UI_FORM_ITEM_WIDTH_DEFAULT, 2)); 
     
+    
+    ofxUIRangeSlider *slider = new ofxUIRangeSlider(UI_FORM_ITEM_WIDTH_DEFAULT_VERTICAL, UI_FORM_ITEM_HEIGHT_DEFAULT, 0, 1.0 , 0 , 1.0, ofToString(1));
+    dodecaudionValueIndicators.push_back(slider);
+    gui->addWidgetDown(slider);    
+    for( int i = 1 ; i < DODECAUDION_VALUES_COUNT ; i++ ){
+        slider = new ofxUIRangeSlider(UI_FORM_ITEM_WIDTH_DEFAULT_VERTICAL, UI_FORM_ITEM_HEIGHT_DEFAULT, 0, 1.0, 0.0, 1.0, ofToString(i+1));
+        dodecaudionValueIndicators.push_back(slider);
+        gui->addWidgetRight(slider); 
+    }
+    /*
     ofxUISlider *slider = new ofxUISlider(10.0,160, 0.0, 255.0, 150, ofToString(1));
     dodecaudionValueIndicators.push_back(slider);
     gui->addWidgetDown(slider); 
@@ -181,6 +191,7 @@ void DodecaudionOSCBridgeApp::initGUI()
         dodecaudionValueIndicators.push_back(slider);
         gui->addWidgetRight(slider); 
     }
+    */
     
     dodecaudionCalibrateToggle = (new ofxUIToggle(10.0,10.0, false, UI_DODECAUDION_CALIBRATE_TOGGLE_NAME ));
     gui->addWidgetDown(dodecaudionCalibrateToggle);
@@ -234,7 +245,9 @@ void DodecaudionOSCBridgeApp::guiEvent(ofxUIEventArgs &e)
 void DodecaudionOSCBridgeApp::guiDodecaudionIndicatorSetToWallValue( int wallId )
 {
     if( wallId < dodecaudionValues.size() ){
-        dodecaudionValueIndicators[wallId]->setValue( dodecaudionValues[wallId] );
+        dodecaudionValueIndicators[wallId]->setValueLow( dodecaudionValuesCalibrationOffset[wallId] );
+        dodecaudionValueIndicators[wallId]->setValueHigh( dodecaudionValuesCalibrationOffset[wallId] + dodecaudionValues[wallId] );
+        //dodecaudionValueIndicators[wallId]->setValue( dodecaudionValues[wallId] );
     }
 }
 
@@ -370,12 +383,22 @@ void DodecaudionOSCBridgeApp::updateDodecaudionCalibration()
     //std::cout << "calibrating " << ( ofGetFrameNum() - calibrationStartFrame ) << " / " << calibrationFrameLimit << std::endl;
     
     if( calibrationFrameLimit >= ( ofGetFrameNum() - calibrationStartFrame ) ){
+        
+        //first frame of calibration - clear previous readings
+        if( isFirstCalibratingFrame == true ){
+            for( int wallId = 0 ; wallId < dodecaudionValues.size() ; wallId++ ){
+                dodecaudionValuesCalibrationOffset[wallId] = 0;
+            }
+            isFirstCalibratingFrame = false;
+        }
+        
         for( int wallId = 0 ; wallId < dodecaudionValues.size() ; wallId++ ){
-            dodecaudionValuesCalibrationOffset[wallId] = 0.5f * (float)( dodecaudionValuesCalibrationOffset[wallId] + dodecaudionValues[wallId] );
-            std::cout << dodecaudionValuesCalibrationOffset[wallId] << " " << dodecaudionValuesCalibrationOffset[wallId] << " " << dodecaudionValues[wallId] << std::endl;
+            dodecaudionValuesCalibrationOffset[wallId] = 0.5 * dodecaudionValuesCalibrationOffset[wallId] + 0.5 * MAX( dodecaudionValuesCalibrationOffset[wallId] , dodecaudionValues[wallId] );
+            //std::cout << dodecaudionValuesCalibrationOffset[wallId] << " " << dodecaudionValuesCalibrationOffset[wallId] << " " << dodecaudionValues[wallId] << std::endl;
         }
     }else{
         isCalibrating = false;
+        isFirstCalibratingFrame = true;
         dodecaudionCalibrateToggle->setValue(isCalibrating);
     
         std::cout << "Calibration finished" << std::endl;
@@ -394,7 +417,8 @@ void DodecaudionOSCBridgeApp::updateDodecaudionCalibration()
 float DodecaudionOSCBridgeApp::dodecaudionValueCalc( int wallId , float newValue )
 {
     float ret = newValue;
-
+    float signalTimeMinLength = 3.0;
+    
     if( wallId < dodecaudionValues.size() ){
         float valueOffset = dodecaudionValuesCalibrationOffset[wallId];
         ret = MAX( 0 , newValue - valueOffset );
