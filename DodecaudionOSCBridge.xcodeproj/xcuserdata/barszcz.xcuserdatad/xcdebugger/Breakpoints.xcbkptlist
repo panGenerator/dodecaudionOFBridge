@@ -227,11 +227,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "src/DodecaudionOSCBridgeApp.cpp"
-         timestampString = "353870418.212454"
+         timestampString = "353971442.606981"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "396"
-         endingLineNumber = "396"
+         startingLineNumber = "400"
+         endingLineNumber = "400"
          landmarkName = "DodecaudionOSCBridgeApp::updateDodecaudionCalibration()"
          landmarkType = "5">
       </FileBreakpoint>

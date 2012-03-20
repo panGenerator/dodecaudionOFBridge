@@ -342,7 +342,7 @@ void DodecaudionOSCBridgeApp::oscSendValues()
     msg1.addFloatArg(dodecaudionValues[9]);
     msg1.addFloatArg(dodecaudionValues[11]);
 
-    msg2.setAddress(OSC_ADDRESS_INSTRUMENT1);
+    msg2.setAddress(OSC_ADDRESS_INSTRUMENT2);
     msg2.addFloatArg(dodecaudionValues[0]);
     msg2.addFloatArg(dodecaudionValues[2]);
     msg2.addFloatArg(dodecaudionValues[4]);
@@ -350,6 +350,10 @@ void DodecaudionOSCBridgeApp::oscSendValues()
     msg2.addFloatArg(dodecaudionValues[8]);
     msg2.addFloatArg(dodecaudionValues[10]);
 
+    std::cout << "msg1: " << msg1.getAddress() << " " << msg1.getArgAsFloat(0) << " " << msg1.getArgAsFloat(1) << " " << msg1.getArgAsFloat(2) << " " << msg1.getArgAsFloat(3) << " " << msg1.getArgAsFloat(4) << " " << msg1.getArgAsFloat(5) << std::endl;
+
+    std::cout << "msg2: " << msg2.getAddress() << " " << msg2.getArgAsFloat(0) << " " << msg2.getArgAsFloat(1) << " " << msg2.getArgAsFloat(2) << " " << msg2.getArgAsFloat(3) << " " << msg2.getArgAsFloat(4) << " " << msg2.getArgAsFloat(5) << std::endl;
+    
     oscSender.sendMessage(msg1);
     oscSender.sendMessage(msg2);
 }
@@ -421,7 +425,7 @@ float DodecaudionOSCBridgeApp::dodecaudionValueCalc( int wallId , float newValue
     
     if( wallId < dodecaudionValues.size() ){
         float valueOffset = dodecaudionValuesCalibrationOffset[wallId];
-        ret = MAX( 0 , newValue - valueOffset );
+        ret = MIN( 1.0 , (1.0 + valueOffset) * MAX( 0 , newValue - valueOffset ) );
     }
     return ret;
 }
